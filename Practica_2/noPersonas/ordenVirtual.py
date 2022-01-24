@@ -1,0 +1,89 @@
+from orden import Orden
+
+class OrdenVirtual(Orden):
+    _ordenesVirtuales = []
+    _nroOrdenes = 2000
+    _ordenesCreadas = 0
+
+    def __init__(self, bebidas,cliente, barista, domiciliario):
+        OrdenVirtual._ordenesCreadas += 1
+        self._nroOrden = OrdenVirtual._nroOrdenes
+        self._bebidas = bebidas
+        self._barista = barista
+        self._domiciliario = domiciliario
+        acumulado = 0
+        
+        for x in self._bebidas:
+            acumulado += x.getPrecio()
+        
+        self._costo = acumulado
+        OrdenVirtual._ordenesVirtuales.append(self)
+    
+    @classmethod
+    def getOrdenesCreadas(cls):
+        return cls._ordenesCreadas
+    
+    @classmethod
+    def setOrdenesCreadas(cls, ordenesCreadas):
+        cls._ordenesCreadas = ordenesCreadas
+        
+    def aplicarPromocion():
+        pass
+    
+    def reportarIncidente(self):
+        self._domiciliario.setIncidentes(True)
+    
+    def __str__(self):
+        return self._barista.getNombre() + " le vendió a " + self._cliente.getNombre()+" la orden número " + self._nroOrden + " por un valor de " + self._costo
+    
+    @classmethod
+    def getOrdenesVirtuales(cls):
+        return cls._ordenesVirtuales
+    
+    @classmethod
+    def setOrdenesVirtuales(cls, ordenesVirtuales):
+        cls._ordenesVirtuales = ordenesVirtuales
+    
+    @classmethod
+    def getNroOrdenes(cls):
+        return cls._nroOrdenes
+    
+    def getBebidas(self):
+        return self._bebidas
+    
+    def getCliente(self):
+        return self._cliente;
+    
+    def getBarista(self):
+        return self._barista
+    
+    def getDomiciliario(self):
+        return self._domiciliario
+
+    def getNroOrden(self):
+        return self._nroOrden
+
+    def getCosto(self):
+        return self._costo
+
+    @classmethod
+    def setNroOrdenes(cls,nroOrdenes):
+        cls._nroOrdenes = nroOrdenes
+    
+    def setBebidas(self, bebidas):
+        self._bebidas = bebidas
+
+    def setCliente(self, cliente):
+        self._cliente = cliente
+
+    def setBarista(self, barista):
+        self._barista = barista
+
+    def setDomiciliario(self, domiciliario):
+        self._domiciliario = domiciliario
+
+    def setNroOrden(self, nroOrden):
+        self._nroOrden = nroOrden
+
+    def setCosto(self, costo):
+        self._costo = costo
