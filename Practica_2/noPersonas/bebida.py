@@ -1,10 +1,11 @@
 class Bebida:
+    
     def __init__(self, codigo, precio):
         self._codigo = codigo
         self._precio = precio
     
     def __str__(self):
-        return "La bebida preparada tiene un precio de " + self.precio
+        return 'La bebida preparada tiene un precio de ' + self.precio
         
     def getCodigo(self):
         return self._codigo

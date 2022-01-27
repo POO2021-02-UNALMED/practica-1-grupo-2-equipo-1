@@ -1,16 +1,18 @@
 from empleado import Empleado
+from noPersonas.orden import Orden
 
 class Barista(Empleado):
     _baristas = []
     _SUELDO = 908526
     
     def __init__(self, cedula, nombre):
+        super().__init__(cedula, nombre, Barista._SUELDO)
         self._cedula = cedula
         self._nombre = nombre
         Barista._baristas.append(self)
     
     def __str__(self):
-        return "El barista " + self._nombre + " identificado con el número de cedula " + self._cedula + " tiene como funciones: atender al cliente, vigilar el local y recibir ordenes por parte de su administrador"
+        return 'El barista ' + self._nombre + ' identificado con el número de cedula ' + self._cedula + ' tiene como funciones: atender al cliente, vigilar el local y recibir ordenes por parte de su administrador'
     
     @classmethod
     def getBaristas(cls):
@@ -56,5 +58,3 @@ class Barista(Empleado):
 
     def setComisionAcumulada(self, comisionAcumulada):
         self._comisionAcumulada = comisionAcumulada
-    
-        

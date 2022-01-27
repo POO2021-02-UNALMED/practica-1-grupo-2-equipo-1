@@ -1,7 +1,9 @@
 from empleado import Empleado
 
 class Administrador(Empleado):
+    
     def __init__(self, cedula, nombre, sueldo, usuario, contrasena):
+        super().__init__(cedula, nombre, sueldo)
         self._cedula = cedula
         self._nombre = nombre
         self._sueldo = sueldo
@@ -9,7 +11,7 @@ class Administrador(Empleado):
         self._contrasena = contrasena
         
     def __str__(self):
-        return  "El administrador " + self._nombre + " identificado con el número de cedula " + self._cedula + " tiene como funciones: supervisar el local, dirigir a los baristas y hacer uso correcto del sistema al que se le dio acceso"
+        return  'El administrador ' + self._nombre + ' identificado con el número de cedula ' + self._cedula + ' tiene como funciones: supervisar el local, dirigir a los baristas y hacer uso correcto del sistema al que se le dio acceso'
     
     def getUsuario(self):
         return self._usuario

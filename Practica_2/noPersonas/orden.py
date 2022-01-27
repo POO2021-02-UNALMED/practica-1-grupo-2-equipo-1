@@ -1,4 +1,5 @@
 class Orden:
+    
     @classmethod
     def aplicarPromocion(promocion):
         pass
