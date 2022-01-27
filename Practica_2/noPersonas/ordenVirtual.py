@@ -1,4 +1,5 @@
 from orden import Orden
+from promocion import Promocion
 
 class OrdenVirtual(Orden):
     _ordenesVirtuales = []
@@ -29,8 +30,13 @@ class OrdenVirtual(Orden):
     def setOrdenesCreadas(cls, ordenesCreadas):
         cls._ordenesCreadas = ordenesCreadas
         
-    def aplicarPromocion():
-        pass
+    def aplicarPromocion(self, promocion):
+        if promocion == Promocion.CAFE2X1: # && ActivarPromocion.isPromos():
+            self._costo -= 5000
+        elif promocion == Promocion.JUGO2X1: # && ActivarPromocion.isPromos():
+            self._costo -= 4000
+        elif promocion == Promocion.CAFECONJUGOAL50: # && ActivarPromocion.isPromos()):
+            self._costo -= 4500
     
     def reportarIncidente(self):
         self._domiciliario.setIncidentes(True)

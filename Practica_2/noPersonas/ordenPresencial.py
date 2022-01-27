@@ -1,6 +1,8 @@
+import imp
 from orden import Orden
 from personas.barista import Barista
 from personas.cliente import Cliente
+from promocion import Promocion
 
 class OrdenPresencial(Orden): 
     _numeroOrdenes = 1000;
@@ -34,15 +36,13 @@ class OrdenPresencial(Orden):
     def setOrdenesCreadas(cls, ordenesCreadas):
         cls._ordenesCreadas = ordenesCreadas
 
-    '''public void aplicarPromocion(Promocion promocion) {
-		if(promocion.equals(Promocion.CAFE2X1) && ActivarPromocion.isPromos()) {
-			this.costo -= 5000;
-		} else if(promocion.equals(Promocion.JUGO2X1) && ActivarPromocion.isPromos()) {
-			this.costo -= 4000;
-		} else if (promocion.equals(Promocion.CAFECONJUGOAL50) && ActivarPromocion.isPromos()){
-			this.costo -= 4500;
-		}
-	}'''
+    def aplicarPromocion(self, promocion):
+        if promocion == Promocion.CAFE2X1: # && ActivarPromocion.isPromos():
+            self._costo -= 5000
+        elif promocion == Promocion.JUGO2X1: # && ActivarPromocion.isPromos():
+            self._costo -= 4000
+        elif promocion == Promocion.CAFECONJUGOAL50: # && ActivarPromocion.isPromos()):
+            self._costo -= 4500
     
     def __str__(self):
         return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + self.numeroOrden + ' por un valor de ' + self.costo
