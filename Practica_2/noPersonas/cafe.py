@@ -2,10 +2,14 @@ from bebida import Bebida
 
 class Cafe(Bebida):
     _inventarioCafe = 0
+    _codigoCafe = 1000
     _PRECIOCAFE = 5000
     
-    def __init__(self, codigoCafe):
-        self._codigoCafe = codigoCafe
+    def __init__(self):
+        super().__init__(Cafe._codigoCafe, Cafe._PRECIOCAFE)
+        self._codigo = Cafe._codigoCafe
+        self._codigo += 1
+        self._precio = Cafe._PRECIOCAFE
         Cafe._inventarioCafe += 1
     
     @classmethod
@@ -18,8 +22,9 @@ class Cafe(Bebida):
     
     def __str__(self):
         activo = '\nCafe'
-        formatoFactura = '' #??
-        formatoFactura += self._precio
+        formatoFactura = ('%-25s')%activo
+        formatoFactura = formatoFactura.replace(' ', '.')
+        formatoFactura += str(self._precio)
         return formatoFactura    
 
     @staticmethod

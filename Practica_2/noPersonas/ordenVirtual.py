@@ -5,10 +5,12 @@ class OrdenVirtual(Orden):
     _nroOrdenes = 2000
     _ordenesCreadas = 0
 
-    def __init__(self, bebidas,cliente, barista, domiciliario):
+    def __init__(self, bebidas, cliente, barista, domiciliario):
         OrdenVirtual._ordenesCreadas += 1
         self._nroOrden = OrdenVirtual._nroOrdenes
+        OrdenVirtual._nroOrdenes += 1
         self._bebidas = bebidas
+        self._cliente = cliente
         self._barista = barista
         self._domiciliario = domiciliario
         acumulado = 0
@@ -34,7 +36,7 @@ class OrdenVirtual(Orden):
         self._domiciliario.setIncidentes(True)
     
     def __str__(self):
-        return self._barista.getNombre() + " le vendió a " + self._cliente.getNombre()+" la orden número " + self._nroOrden + " por un valor de " + self._costo
+        return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + self._nroOrden + ' por un valor de ' + self._costo
     
     @classmethod
     def getOrdenesVirtuales(cls):

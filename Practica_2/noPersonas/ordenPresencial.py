@@ -1,11 +1,12 @@
 from orden import Orden
+from personas.barista import Barista
+from personas.cliente import Cliente
 
 class OrdenPresencial(Orden): 
     _numeroOrdenes = 1000;
     _ordenesCreadas = 0
     
     def __init__(self, bebidas, cliente, barista):
-        self._numeroOrden = OrdenPresencial._ordenesCreadas
         OrdenPresencial._ordenesCreadas += 1
         self._numeroOrden = OrdenPresencial._numeroOrdenes
         OrdenPresencial._numeroOrdenes += 1
@@ -17,7 +18,7 @@ class OrdenPresencial(Orden):
         for x in self.bebidas:
             acumulado += x.getPrecio()
             
-        #self._costo = acumulado
+        self._costo = acumulado
     
     def getBebidas(self):
         return self._bebidas;
@@ -33,7 +34,7 @@ class OrdenPresencial(Orden):
     def setOrdenesCreadas(cls, ordenesCreadas):
         cls._ordenesCreadas = ordenesCreadas
 
-	'''public void aplicarPromocion(Promocion promocion) {
+    '''public void aplicarPromocion(Promocion promocion) {
 		if(promocion.equals(Promocion.CAFE2X1) && ActivarPromocion.isPromos()) {
 			this.costo -= 5000;
 		} else if(promocion.equals(Promocion.JUGO2X1) && ActivarPromocion.isPromos()) {
@@ -44,7 +45,7 @@ class OrdenPresencial(Orden):
 	}'''
     
     def __str__(self):
-        return self.barista.getNombre() + " le vendió a " + self.cliente.getNombre()+" la orden número " + self.numeroOrden + " por un valor de " + self.costo
+        return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + self.numeroOrden + ' por un valor de ' + self.costo
 
     @classmethod
     def getNumeroOrdenes(cls):
