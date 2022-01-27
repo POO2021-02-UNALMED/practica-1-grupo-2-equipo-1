@@ -1,5 +1,6 @@
 from empleado import Empleado
 from noPersonas.orden import Orden
+from noPersonas.ordenVirtual import OrdenVirtual
 
 class Barista(Empleado):
     _baristas = []
@@ -58,3 +59,34 @@ class Barista(Empleado):
 
     def setComisionAcumulada(self, comisionAcumulada):
         self._comisionAcumulada = comisionAcumulada
+    
+    def prepararVenta(self, bebidas, cliente, domiciliario = '', promocion = ''):
+        orden = OrdenVirtual(bebidas, cliente, self, domiciliario)
+        orden.aplicarPromocion(promocion)
+        
+        if domiciliario != '':
+            retorno = '\nOrden '+orden.getNroOrden()+'\n\npreparada por\n'+ self._nombre +'\n\nse le entrega a\n'+ domiciliario.getNombre() + '\n\npara ser entregada a \n' + cliente.getNombre()+'\n'
+        else:
+            retorno = '\nOrden '+orden.getNroOrden()+'\n\npreparada por\n'+ self._nombre+ '\n\npara ser entregada a \n' + cliente.getNombre()+'\n'
+        
+        for x in bebidas:
+            retorno += x.__str__()
+        
+        if promocion != '':
+            valorFactura =('%-23s')%'Valor_con_promo'
+        else:
+            valorFactura =('%-23s')%'Valor_total'
+        valorFactura = valorFactura.replace(' ', '.')
+        retorno += "\n" + valorFactura + orden.getCosto()
+        self._ventas.append(orden)
+        self._ventasAcumuladas += orden.getCosto()
+        self.comisionVentas += (orden.getCosto() * self._comisionAcumulada)/100;
+		
+        if self._ventasAcumuladas >= 20000:
+            if self._ventasAcumuladas >= 50000:
+                self._comisionAcumulada = 5
+            else:
+                self._comisionAcumulada = 2
+    
+        return retorno;
+        
