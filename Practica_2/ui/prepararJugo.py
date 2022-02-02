@@ -2,10 +2,9 @@ from turtle import width
 from noPersonas.bebida import Bebida
 from noPersonas.cafe import Cafe
 import tkinter as tk
-
 from ui.fieldFrame import FieldFrame
 
-class PrepararCafe:
+class PrepararJugo:
     frame = None
     
     def __init__(self, nombre):
@@ -19,7 +18,7 @@ class PrepararCafe:
                             bg='light sky blue')
         
         nombre = tk.Label(cls.frame, 
-                        text='Preparar cafe',
+                        text='Preparar Jugo',
                         font = 'helvetica',
                         bg = 'royalblue1',
                         fg='white',
@@ -36,15 +35,7 @@ class PrepararCafe:
                             height='5')
         
         descripcion.place(x=270, y = 40)
-        
         ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
         fframe = ff.getFrame()
         fframe.place(x=300, y=180)
-        #cafes = tk.Entry(cls.frame,width="50")
-        #cafes.pack
-        Cafe.prepararCafes(0)
-        #label2 = tk.Label(cls.frame, text="Se prepararon " + "" + " cafés.")
-        #label2.place(x=0,y=0)
-        #boton = tk.Button(cls.frame)
-        #boton.place(x=100,y=100)
         return cls.frame

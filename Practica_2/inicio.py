@@ -45,16 +45,16 @@ if __name__ == "__main__":
         foto1.grid(column=0, row= 0)
         
         foto2 = tk.Label(p6, width= 160, heigh=160, bg = 'royalblue1')
-        #foto2['image'] = fotoAlejandro2
-        #foto2.grid(column=1, row= 0)
+        foto2['image'] = fotoAlejandro2
+        foto2.grid(column=1, row= 0)
 
         foto3 = tk.Label(p6, width= 160, heigh=160, bg = 'royalblue1')
-        #foto3['image'] = fotoAlejandro3
-        #foto3.grid(column=0, row= 1)
+        foto3['image'] = fotoAlejandro3
+        foto3.grid(column=0, row= 1)
 
         foto4 = tk.Label(p6, width= 160, heigh=160, bg = 'royalblue1')
-        #foto4['image'] = fotoAlejandro4
-        #foto4.grid(column=1, row= 1)
+        foto4['image'] = fotoAlejandro4
+        foto4.grid(column=1, row= 1)
 
     def cambioDesarrollador3(evento):
         desarrollador.config(text="Pablo")
@@ -135,6 +135,9 @@ if __name__ == "__main__":
 
     #p6
     fotoAlejandro1 = tk.PhotoImage(file='FotoAlejandro1.png')
+    fotoAlejandro2 = tk.PhotoImage(file='FotoAlejandro2.png')
+    fotoAlejandro3 = tk.PhotoImage(file='FotoAlejandro3.png')
+    fotoAlejandro4 = tk.PhotoImage(file='FotoAlejandro4.png')
 
     fotoPablo1 = tk.PhotoImage(file='FotoPablo1.png')
     fotoPablo2 = tk.PhotoImage(file='FotoPablo2.png')
