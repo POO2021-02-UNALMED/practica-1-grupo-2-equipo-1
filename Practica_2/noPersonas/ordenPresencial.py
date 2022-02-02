@@ -1,7 +1,6 @@
-import imp
 from orden import Orden
-from personas.barista import Barista
-from personas.cliente import Cliente
+#from personas.barista import Barista
+#from personas.cliente import Cliente
 from promocion import Promocion
 
 class OrdenPresencial(Orden): 

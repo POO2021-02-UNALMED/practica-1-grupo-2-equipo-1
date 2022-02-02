@@ -1,4 +1,4 @@
-from bebida import Bebida
+from noPersonas.bebida import Bebida
 
 class Cafe(Bebida):
     _inventarioCafe = 0
@@ -28,7 +28,7 @@ class Cafe(Bebida):
         return formatoFactura    
 
     @staticmethod
-    def prepararCafes(cls, i):
+    def prepararCafes(i):
         while i > 0:
             Cafe()
             i -= 1
