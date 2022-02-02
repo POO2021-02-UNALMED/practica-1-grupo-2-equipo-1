@@ -19,6 +19,16 @@ class App:
         self._nombre=nombre
     
     @classmethod
+    def aplicacion(cls):
+        tk.messagebox.showinfo('Aplicación','''La aplicación se encarga de llevar un registro digital y
+verificable de todo el tipo de acciones comerciales realizadas
+al interior del establecimiento, cada una de estas acciones 
+queda grabada y procede a afectar de una manera u otra 
+todas las acciones subsecuentes, esto permite que todas
+las ventas, incidentes y obrar de empleados tengan una 
+explicación y consecuencias fáciles de consultar.''')
+    
+    @classmethod
     def salir(cls):
         cls.w.destroy()
 
@@ -69,6 +79,12 @@ class App:
         cafe = RegistroVenta('n')
         frame = RegistroVenta.start(cls.w)
         frame.place(x=0,y=0)
+    
+    @classmethod
+    def acercaDe(cls):
+        tk.messagebox.showinfo('Acerca de','''Alejandro Noriega Soto
+Pablo Restrepo Osorio
+Nicolás Valencia Trujillo''') 
         
     @classmethod
     def iniciarSistema(cls, window):
@@ -78,14 +94,10 @@ class App:
         cls.w.title('App')
         cls.w.option_add('*tearOff', False) 
 
-        
-        '''p1 = tk.Frame(master=cls.w, width="1000", height="100", bg="light sky blue")
-        p1.place(x=0, y=10)'''
-        
         menubar = tk.Menu(cls.w)
         menu1 = tk.Menu(menubar)
         menubar.add_cascade(menu=menu1, label='Archivo')
-        menu1.add_command(label="Aplicación")
+        menu1.add_command(label="Aplicación", command=cls.aplicacion)
         menu1.add_command(label="Salir", command=cls.salir)
         
         menu2 = tk.Menu(menubar)
@@ -96,13 +108,14 @@ class App:
         menu2.add_command(label="Inventario", command= cls.inventario)
         menu2.add_command(label="Preparar cafe", command= cls.prepararCafe)
         menu2.add_command(label="Prepara Jugo", command= cls.prepararJugo)
-        menu2.add_command(label="Registro incidente", command= cls.reportarIncidente)
+        menu2.add_command(label="Reportar incidente", command= cls.reportarIncidente)
         menu2.add_command(label="Registro venta", command= cls.registroVenta)
-
         menu3 = tk.Menu(menubar)
         menubar.add_cascade(menu=menu3, label='ayuda')
-        menu3.add_command(label="Acerca de")
+        menu3.add_command(label="Acerca de", command=cls.acercaDe)
         cls.w['menu'] = menubar
+        frame = cls.registroVenta()
+        frame.place(x=0, y=0)
         
 
         return cls.w

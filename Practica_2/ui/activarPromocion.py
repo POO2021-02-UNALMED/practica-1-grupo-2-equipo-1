@@ -24,20 +24,18 @@ class ActivarPromocion:
                         width=15,
                         height=1)
         
-        nombre.place(x=385, y = 5)
+        nombre.place(x=385, y = 10)
         descripcion = tk.Label(cls.frame,
-                            text = '''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx''',
+                            text = '''Esta funcionalidad le permite al administrador
+activar las promociones a las que la empresa 
+puede recurrir en caso de necesitar incrementar
+las ventas''',
                             font='helvetica',
                             bg = 'royalblue1',
                             fg='white',
                             width = '40',
                             height='5')
         
-        descripcion.place(x=270, y = 40)
-        #cafes = tk.Entry(cls.frame,width="50")
-        #cafes.pack
-        #label2 = tk.Label(cls.frame, text="Se prepararon " + "" + " cafés.")
-        #label2.place(x=0,y=0)
-        #boton = tk.Button(cls.frame)
-        #boton.place(x=100,y=100)
+        descripcion.place(x=270, y = 50)
+
         return cls.frame

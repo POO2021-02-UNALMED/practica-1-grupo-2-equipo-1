@@ -25,16 +25,18 @@ class RegistroVenta:
                         width=15,
                         height=1)
         
-        nombre.place(x=385, y = 5)
+        nombre.place(x=385, y = 10)
         descripcion = tk.Label(cls.frame,
-                            text = '''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx''',
+                            text = '''Esta funcionalidad le permite al administrador el 
+registro y generación de una factura al momento de 
+realizar una venta presencial o virtual''',
                             font='helvetica',
                             bg = 'royalblue1',
                             fg='white',
                             width = '40',
                             height='5')
         
-        descripcion.place(x=270, y = 40)
+        descripcion.place(x=270, y = 50)
         ff = FieldFrame(f = cls.frame, 
                         tituloCriterios="criterios", 
                         criterios=["Número de barista", "Nombre cliente", "Número de cafes", "Número de jugos"], 
@@ -43,5 +45,5 @@ class RegistroVenta:
                         habilitado=None)
         
         fframe = ff.getFrame()
-        fframe.place(x=300, y=180)
+        fframe.place(x=300, y=200)
         return cls.frame

@@ -24,16 +24,17 @@ class Inventario:
                         width=15,
                         height=1)
         
-        nombre.place(x=385, y = 5)
+        nombre.place(x=385, y = 10)
         descripcion = tk.Label(cls.frame,
-                            text = '''xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx''',
+                            text = '''Permite consultar el inventario actual
+tanto de jugos como de cafés''',
                             font='helvetica',
                             bg = 'royalblue1',
                             fg='white',
                             width = '40',
                             height='5')
         
-        descripcion.place(x=270, y = 40)
+        descripcion.place(x=270, y = 50)
         #cafes = tk.Entry(cls.frame,width="50")
         #cafes.pack
         #label2 = tk.Label(cls.frame, text="Se prepararon " + "" + " cafés.")
