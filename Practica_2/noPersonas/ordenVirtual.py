@@ -1,5 +1,5 @@
-from orden import Orden
-from promocion import Promocion
+from noPersonas.orden import Orden
+from noPersonas.promocion import Promocion
 
 class OrdenVirtual(Orden):
     _ordenesVirtuales = []

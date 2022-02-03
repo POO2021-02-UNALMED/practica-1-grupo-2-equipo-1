@@ -1,7 +1,7 @@
-from orden import Orden
-#from personas.barista import Barista
+from noPersonas.orden import Orden
+from personas.barista import Barista
 #from personas.cliente import Cliente
-from promocion import Promocion
+from noPersonas.promocion import Promocion
 
 class OrdenPresencial(Orden): 
     _numeroOrdenes = 1000;
@@ -15,8 +15,9 @@ class OrdenPresencial(Orden):
         self._cliente = cliente
         self._barista = barista
         acumulado = 0;
+        barista._ventas.append(self)
 		
-        for x in self.bebidas:
+        for x in self._bebidas:
             acumulado += x.getPrecio()
             
         self._costo = acumulado
@@ -44,7 +45,7 @@ class OrdenPresencial(Orden):
             self._costo -= 4500
     
     def __str__(self):
-        return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + self.numeroOrden + ' por un valor de ' + self.costo
+        return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + str(self._numeroOrden) + ' por un valor de ' + str(self._costo)
 
     @classmethod
     def getNumeroOrdenes(cls):

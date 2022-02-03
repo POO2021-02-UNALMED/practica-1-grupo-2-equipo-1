@@ -1,4 +1,4 @@
-from empleado import Empleado
+from personas.empleado import Empleado
 from noPersonas.orden import Orden
 from noPersonas.ordenVirtual import OrdenVirtual
 
@@ -8,6 +8,9 @@ class Barista(Empleado):
     
     def __init__(self, cedula, nombre):
         super().__init__(cedula, nombre, Barista._SUELDO)
+        self._comisionAcumulada = 0
+        self._comisionVentas = 0
+        self._ventas = list()
         self._cedula = cedula
         self._nombre = nombre
         Barista._baristas.append(self)
