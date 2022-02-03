@@ -3,7 +3,7 @@ from noPersonas.promocion import Promocion
 
 class OrdenVirtual(Orden):
     _ordenesVirtuales = []
-    _nroOrdenes = 0
+    _nroOrdenes = 1
     _ordenesCreadas = 0
 
     def __init__(self, bebidas, cliente, barista, domiciliario):
