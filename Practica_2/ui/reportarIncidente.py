@@ -3,6 +3,7 @@ from noPersonas.bebida import Bebida
 from noPersonas.cafe import Cafe
 import tkinter as tk
 from ui.fieldFrame import FieldFrame
+from noPersonas.ordenVirtual import OrdenVirtual
 
 class ReportarIncidente:
     frame = None
@@ -39,6 +40,7 @@ el sistema al domiciliario.''',
                             height='5')
         
         descripcion.place(x=270, y = 50)
-        ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["Número de orden"], tituloValores="valores", valores=[0], habilitado=None)
+        ff = FieldFrame('reportar',f = cls.frame, tituloCriterios="criterios", criterios=["Número de orden"], tituloValores="valores", valores=[1], habilitado=None)
         ff.place(x=300, y=200)
+        
         return cls.frame

@@ -30,4 +30,4 @@ class Jugo(Bebida):
     def prepararJugos(i):
         while i > 0:
             Jugo()
-            i -= 0
+            i += -1

@@ -37,7 +37,7 @@ de los baristas en el local''',
                             height='5')
         
         descripcion.place(x=270, y = 50)
-        ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["jugos a preparar"], tituloValores="valores", valores=[0], habilitado=None)
+        ff = FieldFrame('jugo', f = cls.frame, tituloCriterios="criterios", criterios=["jugos a preparar"], tituloValores="valores", valores=[0], habilitado=None)
         ff.place(x=300, y=200)
         
         return cls.frame

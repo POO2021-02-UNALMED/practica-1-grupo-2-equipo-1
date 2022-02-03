@@ -39,10 +39,9 @@ previamente preparados por baristas''',
         
         descripcion.place(x=270, y = 50)
         
-        ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
+        ff = FieldFrame(origen = 'cafe', f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
         ff.place(x=300, y=200)
-        #raise ExcepcionOrdenNegativa(-1)
-        ff.llenarDiccionario()
-        Cafe.prepararCafes(int(ff.getValue('cafes a preparar')))
+        
+        #Cafe.prepararCafes(int(ff.getValue('cafes a preparar')))
         
         return cls.frame

@@ -15,6 +15,7 @@ class OrdenVirtual(Orden):
         self._barista = barista
         self._domiciliario = domiciliario
         acumulado = 0
+        OrdenVirtual._ordenesVirtuales.append(self)
         
         for x in self._bebidas:
             acumulado += x.getPrecio()

@@ -31,5 +31,5 @@ class Cafe(Bebida):
     def prepararCafes(i):
         while i > 0:
             Cafe()
-            i -= 1
+            i += -1
     

@@ -2,7 +2,7 @@ from json.tool import main
 from logging import root
 import tkinter as tk
 from turtle import width
-from noPersonas.ordenPresencial import OrdenPresencial
+from noPersonas.ordenVirtual import OrdenVirtual
 from personas.cliente import Cliente
 from ui.activarPromocion import ActivarPromocion
 from ui.historicoVentas import HistoricoVentas
@@ -15,6 +15,7 @@ from ui.consultarComision import ConsultarComision
 from personas.barista import Barista
 from noPersonas.cafe import Cafe
 from noPersonas.jugo import Jugo
+from personas.domiciliario import Domiciliario
 
 class App:
     w = None
@@ -41,49 +42,49 @@ explicación y consecuencias fáciles de consultar.''')
     def activarPromocion(cls):     
         cafe = ActivarPromocion('n')
         frame = ActivarPromocion.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0, y = 0)
     
     @classmethod
     def consultarComision(cls):     
         cafe = ConsultarComision('n')
         frame = ConsultarComision.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0,y = 0)
 
     @classmethod
     def historicoVentas(cls):     
         cafe = HistoricoVentas('n')
         frame = HistoricoVentas.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0,y = 0)
 
     @classmethod
     def inventario(cls):     
         cafe = Inventario('n')
         frame = Inventario.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0,y = 0)
 
     @classmethod
     def prepararCafe(cls):     
         cafe = PrepararCafe('n')
         frame = PrepararCafe.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0,y = 0)
         
     @classmethod
     def prepararJugo(cls):     
         cafe = PrepararJugo('n')
         frame = PrepararJugo.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0, y = 0)
     
     @classmethod
     def reportarIncidente(cls):     
         cafe = ReportarIncidente('n')
         frame = ReportarIncidente.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0, y = 0)
     
     @classmethod
     def registroVenta(cls):     
         cafe = RegistroVenta('n')
         frame = RegistroVenta.start(cls.w)
-        frame.place(x=0,y=0)
+        frame.place(x = 0 ,y = 0)
     
     @classmethod
     def acercaDe(cls):
@@ -93,13 +94,17 @@ Nicolás Valencia Trujillo''')
         
     @classmethod
     def iniciarSistema(cls, window):
-        #Cafe.prepararCafes(5)
-        #Jugo.prepararJugos(5)
-        bar1 = Barista(100988877,"Julio Cárdenas")
-        bar2 = Barista(100844433,"Stephanie Peréz")
-        bar3 = Barista(100344521,"Camilo Montaner")
+        Cafe.prepararCafes(5)
+        Jugo.prepararJugos(5)
+        
+        bar1 = Barista(100988877, "Julio Cárdenas")
+        bar2 = Barista(100844433, "Stephanie Peréz")
+        bar3 = Barista(100344521, "Camilo Montaner")
+        
+        dom1 = Domiciliario('Felipe')
+        
         cliente1 = Cliente('Jesus')
-        orden1 = OrdenPresencial([Cafe(), Jugo()], cliente1, bar1)
+        orden1 = OrdenVirtual([Cafe(), Jugo()], cliente1, bar1, dom1)
         
         cls.window = window
         cls.w = tk.Tk()
@@ -128,12 +133,11 @@ Nicolás Valencia Trujillo''')
         menubar.add_cascade(menu=menu3, label='ayuda')
         menu3.add_command(label="Acerca de", command=cls.acercaDe)
         cls.w['menu'] = menubar
+        
         frame = cls.registroVenta()
         
         if frame != None:
-            frame.place(x=0, y=0)
+            frame.place(x = 0, y = 0)
         
 
         return cls.w
-
-        

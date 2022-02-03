@@ -37,7 +37,7 @@ realizar una venta presencial o virtual''',
                             height='5')
         
         descripcion.place(x=270, y = 50)
-        ff = FieldFrame(f = cls.frame, 
+        ff = FieldFrame('registro', f = cls.frame, 
                         tituloCriterios="criterios", 
                         criterios=["Número de barista", "Nombre cliente", "Número de cafes", "Número de jugos"], 
                         tituloValores="valores", 
