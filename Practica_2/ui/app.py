@@ -109,7 +109,7 @@ Nicolás Valencia Trujillo''')
         cls.window = window
         cls.w = tk.Tk()
         cls.w.geometry('900x650')
-        cls.w.title('App')
+        cls.w.title('Cafetería El Dorao')
         cls.w.option_add('*tearOff', False) 
 
         menubar = tk.Menu(cls.w)
