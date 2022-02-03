@@ -40,6 +40,5 @@ el sistema al domiciliario.''',
         
         descripcion.place(x=270, y = 50)
         ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["Número de orden"], tituloValores="valores", valores=[0], habilitado=None)
-        fframe = ff.getFrame()
-        fframe.place(x=300, y=200)
+        ff.place(x=300, y=200)
         return cls.frame

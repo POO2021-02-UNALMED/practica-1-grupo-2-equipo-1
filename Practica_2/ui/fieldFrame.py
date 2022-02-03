@@ -3,6 +3,7 @@ from tkinter import Frame
 
 class FieldFrame(Frame):
     def __init__(self, f, tituloCriterios, criterios, tituloValores, valores, habilitado):
+        
         super().__init__(master = f,
                         width = "1000",
                         height = "1200", 
@@ -47,7 +48,7 @@ class FieldFrame(Frame):
             self.valores[i].insert(tk.END, valores[i])
             
             self.valores[i].grid(column=1,row=i + 1)
-        
+            
         aceptar = tk.Button(self, 
                             width = 6, 
                             height=1, 
@@ -67,7 +68,6 @@ class FieldFrame(Frame):
                         command=self.borrar)
         
         borrar.grid(column=1,row=len(valores)+1)
-        
         self.diccionario = {}
 
     def aceptar(self):
@@ -83,3 +83,6 @@ class FieldFrame(Frame):
             
     def getValue(self, criterio):
         return self.diccionario[criterio]
+    
+    def getDiccionario(self):
+        return self.diccionario

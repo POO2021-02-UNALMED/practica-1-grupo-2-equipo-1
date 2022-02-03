@@ -14,6 +14,7 @@ from ui.reportarIncidente import ReportarIncidente
 from ui.consultarComision import ConsultarComision
 from personas.barista import Barista
 from noPersonas.cafe import Cafe
+from noPersonas.jugo import Jugo
 
 class App:
     w = None
@@ -92,11 +93,13 @@ Nicolás Valencia Trujillo''')
         
     @classmethod
     def iniciarSistema(cls, window):
+        #Cafe.prepararCafes(5)
+        #Jugo.prepararJugos(5)
         bar1 = Barista(100988877,"Julio Cárdenas")
         bar2 = Barista(100844433,"Stephanie Peréz")
         bar3 = Barista(100344521,"Camilo Montaner")
         cliente1 = Cliente('Jesus')
-        orden1 = OrdenPresencial([Cafe()], cliente1, bar1)
+        orden1 = OrdenPresencial([Cafe(), Jugo()], cliente1, bar1)
         
         cls.window = window
         cls.w = tk.Tk()
@@ -120,11 +123,13 @@ Nicolás Valencia Trujillo''')
         menu2.add_command(label="Prepara Jugo", command= cls.prepararJugo)
         menu2.add_command(label="Reportar incidente", command= cls.reportarIncidente)
         menu2.add_command(label="Registro venta", command= cls.registroVenta)
+        
         menu3 = tk.Menu(menubar)
         menubar.add_cascade(menu=menu3, label='ayuda')
         menu3.add_command(label="Acerca de", command=cls.acercaDe)
         cls.w['menu'] = menubar
         frame = cls.registroVenta()
+        
         if frame != None:
             frame.place(x=0, y=0)
         

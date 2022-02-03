@@ -2,6 +2,8 @@ from turtle import width
 from noPersonas.bebida import Bebida
 from noPersonas.cafe import Cafe
 import tkinter as tk
+from excepciones.excepcionOrdenNegativa import ExcepcionOrdenNegativa
+from excepciones.excepcionNegativos import ExcepcionNegativos
 
 from ui.fieldFrame import FieldFrame
 
@@ -41,11 +43,9 @@ previamente preparados por baristas''',
         
         ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
         ff.place(x=300, y=200)
-        #cafes = tk.Entry(cls.frame,width="50")
-        #cafes.pack
-        Cafe.prepararCafes(0)
-        #label2 = tk.Label(cls.frame, text="Se prepararon " + "" + " cafés.")
-        #label2.place(x=0,y=0)
-        #boton = tk.Button(cls.frame)
-        #boton.place(x=100,y=100)
+        #raise ExcepcionOrdenNegativa(-1)
+        #Cafe.prepararCafes(int(ff.getValue('cafes a preparar')))
+
+
+
         return cls.frame

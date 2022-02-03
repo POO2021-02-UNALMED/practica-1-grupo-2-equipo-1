@@ -1,4 +1,4 @@
-from Practica_2.excepciones.excepcionSinInfo import ExcepcionSinInfo
+from excepciones.excepcionSinInfo import ExcepcionSinInfo
 
 class ExcepcionInicioSesion(ExcepcionSinInfo):
     def __init__(self):

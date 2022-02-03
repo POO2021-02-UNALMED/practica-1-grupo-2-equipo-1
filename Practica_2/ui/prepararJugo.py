@@ -1,6 +1,6 @@
 from turtle import width
 from noPersonas.bebida import Bebida
-from noPersonas.cafe import Cafe
+from noPersonas.jugo import Jugo
 import tkinter as tk
 from ui.fieldFrame import FieldFrame
 
@@ -37,7 +37,9 @@ de los baristas en el local''',
                             height='5')
         
         descripcion.place(x=270, y = 50)
-        ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
-        fframe = ff.getFrame()
-        fframe.place(x=300, y=200)
+        ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["jugos a preparar"], tituloValores="valores", valores=[0], habilitado=None)
+        ff.place(x=300, y=200)
+        
+        if 'jugos a preparar' in ff.getDiccionario():
+            Jugo.prepararJugos(int(ff.getValue('jugos a preparar')))
         return cls.frame

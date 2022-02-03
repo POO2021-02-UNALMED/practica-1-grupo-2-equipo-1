@@ -1,4 +1,4 @@
-from excepcionNegativos import ExcepcionNegativos
+from excepciones.excepcionNegativos import ExcepcionNegativos
 
 class ExcepcionOrdenNegativa(ExcepcionNegativos):
     def __init__(self, negativo):

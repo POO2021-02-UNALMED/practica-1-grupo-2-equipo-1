@@ -1,7 +1,7 @@
-from bebida import Bebida
+from noPersonas.bebida import Bebida
 
 class Jugo(Bebida):
-    _inventarioJugo = 0
+    _inventarioJugo = 9
     _codigoJugo = 2000
     _PRECIOJUGO = 4000
     

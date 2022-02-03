@@ -1,7 +1,7 @@
 from noPersonas.bebida import Bebida
 
 class Cafe(Bebida):
-    _inventarioCafe = 0
+    _inventarioCafe = 9
     _codigoCafe = 1000
     _PRECIOCAFE = 5000
     

@@ -1,4 +1,4 @@
-from errorAplicacion import ErrorAplicacion
+from excepciones.errorAplicacion import ErrorAplicacion
 
 class ExcepcionNegativos(ErrorAplicacion):
     def __init__(self, mensaje, negativo):
