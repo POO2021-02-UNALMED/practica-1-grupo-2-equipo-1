@@ -2,8 +2,6 @@ from turtle import width
 from noPersonas.bebida import Bebida
 from noPersonas.cafe import Cafe
 import tkinter as tk
-from excepciones.excepcionOrdenNegativa import ExcepcionOrdenNegativa
-from excepciones.excepcionNegativos import ExcepcionNegativos
 
 from ui.fieldFrame import FieldFrame
 
@@ -44,8 +42,7 @@ previamente preparados por baristas''',
         ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
         ff.place(x=300, y=200)
         #raise ExcepcionOrdenNegativa(-1)
-        #Cafe.prepararCafes(int(ff.getValue('cafes a preparar')))
-
-
-
+        ff.llenarDiccionario()
+        Cafe.prepararCafes(int(ff.getValue('cafes a preparar')))
+        
         return cls.frame

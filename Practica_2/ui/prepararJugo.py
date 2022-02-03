@@ -40,6 +40,4 @@ de los baristas en el local''',
         ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["jugos a preparar"], tituloValores="valores", valores=[0], habilitado=None)
         ff.place(x=300, y=200)
         
-        if 'jugos a preparar' in ff.getDiccionario():
-            Jugo.prepararJugos(int(ff.getValue('jugos a preparar')))
         return cls.frame

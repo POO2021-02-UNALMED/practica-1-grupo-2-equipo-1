@@ -1,9 +1,13 @@
 import tkinter as tk
 from tkinter import Frame
+from excepciones.excepcionCampoNegativo import ExcepcionCampoNegativo
+from excepciones.excepcionNegativos import ExcepcionNegativos
+from excepciones.excepcionSinInfo import ExcepcionSinInfo
+from excepciones.excepcionCampoVacio import ExcepcionCampoVacio
 
 class FieldFrame(Frame):
     def __init__(self, f, tituloCriterios, criterios, tituloValores, valores, habilitado):
-        
+        self.aceptado = False
         super().__init__(master = f,
                         width = "1000",
                         height = "1200", 
@@ -68,13 +72,36 @@ class FieldFrame(Frame):
                         command=self.borrar)
         
         borrar.grid(column=1,row=len(valores)+1)
+        
         self.diccionario = {}
 
-    def aceptar(self):
+    def llenarDiccionario(self):
+        excepcion = False
         for i in range(len(self.valores)):
             self.diccionario[self.criterios[i]["text"]] = self.valores[i].get()
+            
+            if self.valores[i].get().lstrip('-').isdigit():
+                if int(self.valores[i].get()) < 0:
+                    try:
+                        raise ExcepcionCampoNegativo(self.valores[i].get())
+                    except ExcepcionNegativos as f:
+                        f.mostrarMensaje()
+                        excepcion = True
+                        
+            elif self.valores[i].get() == '':
+                try:
+                    raise ExcepcionCampoVacio(self.criterios[i]["text"])
+                except ExcepcionCampoVacio as f:
+                    f.mostrarMensaje()
+                    excepcion = True
         
-        tk.messagebox.showinfo('Aceptar', 'Información guardada')
+        if not excepcion:
+            tk.messagebox.showinfo('Aceptar', 'Información guardada')
+            
+    def aceptar(self):
+        self.llenarDiccionario()
+        self.aceptado = True
+        
         self.borrar()
     
     def borrar(self):
@@ -82,7 +109,5 @@ class FieldFrame(Frame):
             valor.delete(0, "end")
             
     def getValue(self, criterio):
-        return self.diccionario[criterio]
-    
-    def getDiccionario(self):
-        return self.diccionario
+        if criterio in self.diccionario:
+            return self.diccionario[criterio]
