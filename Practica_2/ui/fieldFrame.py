@@ -106,7 +106,7 @@ class FieldFrame(Frame):
         
             if not self.excepcion:
                 if self.origen == 'reportar':
-                    if int(self.valores[0].get()) >= len(OrdenVirtual.getOrdenesVirtuales()) or int(self.valores[0].get()) == 0:
+                    if int(self.valores[0].get()) > len(OrdenVirtual.getOrdenesVirtuales()) or int(self.valores[0].get()) == 0:
                         if int(self.valores[i].get()) > 0:
                             try:
                                 raise ExcepcionFueraDeRango(self.valores[i].get())
