@@ -1,7 +1,10 @@
+import imp
 from turtle import width
 from noPersonas.bebida import Bebida
 from noPersonas.cafe import Cafe
 import tkinter as tk
+from noPersonas.orden import Orden
+from personas.barista import Barista
 
 class HistoricoVentas:
     frame = None
@@ -36,10 +39,23 @@ llevar a si mismo un control de los ingresos del local''',
                             height='5')
         
         descripcion.place(x=270, y = 50)
-        #cafes = tk.Entry(cls.frame,width="50")
-        #cafes.pack
-        #label2 = tk.Label(cls.frame, text="Se prepararon " + "" + " cafés.")
-        #label2.place(x=0,y=0)
-        #boton = tk.Button(cls.frame)
-        #boton.place(x=100,y=100)
+
+        frame = tk.Frame(cls.frame,
+                        width = "1000",
+                        height = "1200", 
+                        bg = 'royalblue1')
+
+        label = tk.Label(frame, text='Hasta el momento las ventas han sido',
+                        bg='royalblue1', 
+                        fg ='white',
+                        width=30,
+                        height=5)
+        
+        label.pack()
+        
+        for barista in Barista.getBaristas():
+            for orden in barista.getOrdenes():
+                tk.Label(frame,text = orden.__str__(), bg = 'royalblue1', fg='white').pack()
+        
+        frame.place(x=250, y=200)   
         return cls.frame

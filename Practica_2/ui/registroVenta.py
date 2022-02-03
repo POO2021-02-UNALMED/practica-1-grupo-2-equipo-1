@@ -44,6 +44,5 @@ realizar una venta presencial o virtual''',
                         valores=[0, "Juan",0,0], 
                         habilitado=None)
         
-        fframe = ff.getFrame()
-        fframe.place(x=300, y=200)
+        ff.place(x=300, y=200)
         return cls.frame

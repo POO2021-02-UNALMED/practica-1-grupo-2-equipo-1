@@ -40,8 +40,7 @@ previamente preparados por baristas''',
         descripcion.place(x=270, y = 50)
         
         ff = FieldFrame(f = cls.frame, tituloCriterios="criterios", criterios=["cafes a preparar"], tituloValores="valores", valores=[0], habilitado=None)
-        fframe = ff.getFrame()
-        fframe.place(x=300, y=200)
+        ff.place(x=300, y=200)
         #cafes = tk.Entry(cls.frame,width="50")
         #cafes.pack
         Cafe.prepararCafes(0)

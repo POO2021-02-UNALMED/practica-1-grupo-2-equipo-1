@@ -2,6 +2,8 @@ from json.tool import main
 from logging import root
 import tkinter as tk
 from turtle import width
+from noPersonas.ordenPresencial import OrdenPresencial
+from personas.cliente import Cliente
 from ui.activarPromocion import ActivarPromocion
 from ui.historicoVentas import HistoricoVentas
 from ui.inventario import Inventario
@@ -10,6 +12,8 @@ from ui.prepararJugo import PrepararJugo
 from ui.registroVenta import RegistroVenta
 from ui.reportarIncidente import ReportarIncidente
 from ui.consultarComision import ConsultarComision
+from personas.barista import Barista
+from noPersonas.cafe import Cafe
 
 class App:
     w = None
@@ -88,6 +92,12 @@ Nicolás Valencia Trujillo''')
         
     @classmethod
     def iniciarSistema(cls, window):
+        bar1 = Barista(100988877,"Julio Cárdenas")
+        bar2 = Barista(100844433,"Stephanie Peréz")
+        bar3 = Barista(100344521,"Camilo Montaner")
+        cliente1 = Cliente('Jesus')
+        orden1 = OrdenPresencial([Cafe()], cliente1, bar1)
+        
         cls.window = window
         cls.w = tk.Tk()
         cls.w.geometry('900x650')
@@ -115,7 +125,8 @@ Nicolás Valencia Trujillo''')
         menu3.add_command(label="Acerca de", command=cls.acercaDe)
         cls.w['menu'] = menubar
         frame = cls.registroVenta()
-        frame.place(x=0, y=0)
+        if frame != None:
+            frame.place(x=0, y=0)
         
 
         return cls.w

@@ -37,5 +37,33 @@ las ventas''',
                             height='5')
         
         descripcion.place(x=270, y = 50)
+        
+        frame = tk.Frame(cls.frame,
+                        width = "1000",
+                        height = "1200", 
+                        bg = 'royalblue1')
 
+        label = tk.Label(frame, text='Activar promociones',
+                        bg='royalblue1', 
+                        fg ='white',
+                        width=30,
+                        height=5)
+        
+        label.pack()
+        
+        cls.activar = tk.IntVar()
+        si = tk.Radiobutton(frame, text='si',
+        variable=cls.activar, value=1, bg='lightskyblue1', command=cls.isPromos)
+        no = tk.Radiobutton(frame, text='no', variable=cls.activar,
+        value=0,bg='lightskyblue1', command=cls.isPromos)
+        si.pack()
+        no.pack()
+        
+        frame.place(x=340, y=200)
         return cls.frame
+    
+    @classmethod
+    def isPromos(cls):
+        if cls.activar.get() == 1:
+            return True
+        return False

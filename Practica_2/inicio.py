@@ -13,11 +13,49 @@ if __name__ == "__main__":
         pass
 
     def nuevaVentana():
-        #window.destroy()
+        window.destroy()
         App.iniciarSistema(window)
     
+    def cambioFoto1():
+        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        #foto['image'] = fotoSistema2
+        foto.place(x=6, y=6)
+        #foto.bind(<Motion>, cambioFoto2)
+    
+    def cambioFoto2():
+        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        #foto['image'] = fotoSistema3
+        foto.place(x=6, y=6)
+        #foto.bind(<Motion>, cambioFoto3)
+
+    def cambioFoto3():
+        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        #foto['image'] = fotoSistema4
+        foto.place(x=6, y=6)
+        #foto.bind(<Motion>, cambioFoto4)
+
+    def cambioFoto1():
+        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        #foto['image'] = fotoSistema5
+        foto.place(x=6, y=6)
+        #foto.bind(<Motion>, cambioFoto5)
+
+    def cambioFoto1():
+        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        #foto['image'] = fotoSistema1
+        foto.place(x=6, y=6)
+        #foto.bind(<Motion>, cambioFoto1)
+        
+        
+        
     def cambioDesarrollador1(evento):
-        desarrollador.config(text="Nicolas")
+        desarrollador.config(text='''Nicolás Valencia
+Estudiante en 5º semestre de Ingeniería de Sistemas. 
+Con capacidad de liderazgo y manejo de equipos 
+de trabajo,excelente capacidad para llevar a cabo 
+las metas fijadas, con miras permanentes al 
+crecimiento personal y laboral.''')
+        
         desarrollador.bind("<Button-1>", cambioDesarrollador2)
     
         foto1 = tk.Label(p6, width=160, height=160, bg = 'royalblue1')
@@ -37,7 +75,13 @@ if __name__ == "__main__":
         foto4.grid(column=1, row= 1)
 
     def cambioDesarrollador2(evento):
-        desarrollador.config(text="Alejandro")
+        desarrollador.config(text='''Alejandro Noriega
+Estudiante en 5º semestre de Ingeniería de Sistemas.
+Cuenta con gran capacidad de liderazgo, gran 
+dedicación para lograr los objetivos y excelentes 
+capacidades tecnicas en el area de la tecnología.
+''')
+
         desarrollador.bind("<Button-1>", cambioDesarrollador3)
         
         foto1 = tk.Label(p6, width=160, height=160, bg = 'royalblue1')
@@ -57,7 +101,13 @@ if __name__ == "__main__":
         foto4.grid(column=1, row= 1)
 
     def cambioDesarrollador3(evento):
-        desarrollador.config(text="Pablo")
+        desarrollador.config(text='''Pablo Restrepo
+Estudiante en 5º semestre de Ingeniería de Sistemas.
+Con conocimientos y capacidades interdisciplinares,
+habilidades sociales y fácil adaptación al momento de
+trabajar en equipo.
+''')
+
         desarrollador.bind("<Button-1>", cambioDesarrollador1)
 
         foto1 = tk.Label(p6, width=160, height=160, bg = 'royalblue1')
@@ -102,10 +152,15 @@ if __name__ == "__main__":
     p4.place(x = 7, y = 235)
 
     #fotoSistema1 = tk.PhotoImage(file='FotoSistema1.png')
+    #fotoSistema2 = tk.PhotoImage(file='FotoSistema2.png')
+    #fotoSistema3 = tk.PhotoImage(file='FotoSistema3.png')
+    #fotoSistema4 = tk.PhotoImage(file='FotoSistema4.png')
+    #fotoSistema5 = tk.PhotoImage(file='FotoSistema5.png')
     foto = tk.Label(p4, width = 57, height=18, bg = 'white')
     #foto['image'] = fotoSistema1
     foto.place(x=6, y=6)
-
+    #foto.bind(<Motion>, cambioFoto1)
+    
     boton = tk.Button(p4, 
                     width=44, 
                     height=5, 
@@ -122,14 +177,19 @@ if __name__ == "__main__":
 
     texto = 'Pablo'
     desarrollador = tk.Label(master=p5, 
-                        text="Pablo", 
-                        width = "30", 
-                        height = "5", 
+                        text='''Pablo Restrepo
+Estudiante en 5º semestre de Ingeniería de Sistemas.
+Con conocimientos y capacidades interdisciplinares,
+habilidades sociales y fácil adaptación al momento de
+trabajar en equipo.
+''', 
+                        width = "47", 
+                        height = "7", 
                         bg = 'royalblue1', 
                         font = 'helvetica', 
                         fg = 'white')
 
-    desarrollador.place(x=65, y= 60)
+    desarrollador.place(x=0, y= 60)
 
     desarrollador.bind("<Button-1>", cambioDesarrollador1)
 
