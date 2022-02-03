@@ -3,7 +3,7 @@ from noPersonas.promocion import Promocion
 
 class OrdenVirtual(Orden):
     _ordenesVirtuales = []
-    _nroOrdenes = 2000
+    _nroOrdenes = 0
     _ordenesCreadas = 0
 
     def __init__(self, bebidas, cliente, barista, domiciliario):
@@ -16,6 +16,7 @@ class OrdenVirtual(Orden):
         self._domiciliario = domiciliario
         acumulado = 0
         OrdenVirtual._ordenesVirtuales.append(self)
+        barista._ventas.append(self)
         
         for x in self._bebidas:
             acumulado += x.getPrecio()
@@ -43,7 +44,7 @@ class OrdenVirtual(Orden):
         self._domiciliario.setIncidentes(True)
     
     def __str__(self):
-        return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + self._nroOrden + ' por un valor de ' + self._costo
+        return self._barista.getNombre() + ' le vendió a ' + self._cliente.getNombre()+' la orden número ' + str(self._nroOrden) + ' por un valor de ' + str(self._costo)
     
     @classmethod
     def getOrdenesVirtuales(cls):

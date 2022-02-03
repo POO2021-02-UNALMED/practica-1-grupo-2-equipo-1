@@ -10,7 +10,7 @@ class Cafe(Bebida):
         self._codigo = Cafe._codigoCafe
         self._codigo += 1
         self._precio = Cafe._PRECIOCAFE
-        Cafe._inventarioCafe += 1
+        Cafe._inventarioCafe -= 1
     
     @classmethod
     def getInventarioCafe(cls):
@@ -31,5 +31,6 @@ class Cafe(Bebida):
     def prepararCafes(i):
         while i > 0:
             Cafe()
+            Cafe._inventarioCafe += 2
             i += -1
     

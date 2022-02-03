@@ -9,7 +9,7 @@ class Jugo(Bebida):
         super().__init__(Jugo._codigoJugo, Jugo._PRECIOJUGO)
         self._codigo = Jugo._codigoJugo
         self._precio = Jugo._PRECIOJUGO
-        Jugo._inventarioJugo += 1
+        Jugo._inventarioJugo -= 1
     
     def __str__(self):
         activo = '\Jugo'
@@ -30,4 +30,5 @@ class Jugo(Bebida):
     def prepararJugos(i):
         while i > 0:
             Jugo()
+            Jugo._inventarioJugo += 2
             i += -1

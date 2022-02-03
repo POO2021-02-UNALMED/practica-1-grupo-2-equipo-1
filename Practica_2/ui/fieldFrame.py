@@ -7,6 +7,9 @@ from excepciones.excepcionCampoVacio import ExcepcionCampoVacio
 from noPersonas.cafe import Cafe
 from noPersonas.jugo import Jugo
 from noPersonas.ordenVirtual import OrdenVirtual
+from personas.cliente import Cliente
+from personas.domiciliario import Domiciliario
+from personas.barista import Barista
 
 class FieldFrame(Frame):
     def __init__(self, origen, f, tituloCriterios, criterios, tituloValores, valores, habilitado):
@@ -101,18 +104,20 @@ class FieldFrame(Frame):
                     f.mostrarMensaje()
                     self.excepcion = True
         
-        if not self.excepcion:
-            if self.origen == 'reportar':
-                if int(self.valores[0].get()) >= len(OrdenVirtual.getOrdenesVirtuales()) or int(self.valores[0].get()) == 0:
-                    if int(self.valores[i].get()) > 0:
-                        try:
-                            raise ExcepcionFueraDeRango(self.valores[i].get())
-                        except ExcepcionNegativos as f:
-                            f.mostrarMensaje()
-                            self.excepcion = True
+            if not self.excepcion:
+                if self.origen == 'reportar':
+                    if int(self.valores[0].get()) >= len(OrdenVirtual.getOrdenesVirtuales()) or int(self.valores[0].get()) == 0:
+                        if int(self.valores[i].get()) > 0:
+                            try:
+                                raise ExcepcionFueraDeRango(self.valores[i].get())
+                            except ExcepcionNegativos as f:
+                                f.mostrarMensaje()
+                                self.excepcion = True
+            
+            if not self.excepcion:
+                self.diccionario[self.criterios[i]["text"]] = self.valores[i].get()
 
         if not self.excepcion:
-            self.diccionario[self.criterios[i]["text"]] = self.valores[i].get()
             tk.messagebox.showinfo('Aceptar', 'Información guardada')
             
     def aceptar(self):
@@ -125,6 +130,19 @@ class FieldFrame(Frame):
                 Jugo.prepararJugos(int(self.getValue('jugos a preparar')))
             elif self.origen == 'reportar':
                 OrdenVirtual.getOrdenesVirtuales()[int(self.getValue('Número de orden'))-1].reportarIncidente()
+            elif self.origen == 'registro':
+                cliente = Cliente(self.getValue('Nombre cliente'))
+                barista = Barista(1, self.getValue('Nombre de barista'))
+                domiciliario = Domiciliario(self.getValue('Domiciliario'))
+                bebidas = []
+                
+                for i in range(int(self.getValue('Número de cafes'))):
+                    bebidas.append(Cafe())
+                
+                for i in range(int(self.getValue('Número de jugos'))):
+                    bebidas.append(Jugo())
+                
+                orden1 = OrdenVirtual(bebidas, cliente, barista, domiciliario)
             
         self.aceptado = True
         self.borrar()
