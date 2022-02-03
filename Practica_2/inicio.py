@@ -17,35 +17,41 @@ if __name__ == "__main__":
         window.destroy()
         App.iniciarSistema(window)
     
-    '''def cambioFoto1(evento):
-        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+    def cambioFoto1(evento):
+        foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
         foto['image'] = fotoSistema2
         foto.place(x=6, y=6)
-        foto.bind('<Motion>', cambioFoto2)
+        foto.bind('<Leave>', cambioFoto2)
     
     def cambioFoto2(evento):
-        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
         foto['image'] = fotoSistema3
         foto.place(x=6, y=6)
-        foto.bind('<Motion>', cambioFoto3)
+        foto.bind('<Enter>', cambioFoto3)
 
     def cambioFoto3(evento):
-        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
         foto['image'] = fotoSistema4
         foto.place(x=6, y=6)
-        foto.bind('<Motion>', cambioFoto4)
+        foto.bind('<Leave>', cambioFoto4)
 
     def cambioFoto4(evento):
-        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
         foto['image'] = fotoSistema5
         foto.place(x=6, y=6)
-        foto.bind('<Motion>', cambioFoto5)
-
+        foto.bind('<Enter>', cambioFoto5)
+    
     def cambioFoto5(evento):
-        foto = tk.Label(p4, width = 57, height=18, bg = 'white')
+        foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
+        foto['image'] = fotoSistema6
+        foto.place(x=6, y=6)
+        foto.bind('<Leave>', cambioFoto6)
+    
+    def cambioFoto6(evento):
+        foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
         foto['image'] = fotoSistema1
         foto.place(x=6, y=6)
-        foto.bind('<Motion>', cambioFoto1)'''
+        foto.bind('<Enter>', cambioFoto1)
         
         
         
@@ -151,16 +157,17 @@ trabajar en equipo.
     #p4
     p4 = tk.Frame(master = p1, width="420", height="400", bg='royalblue1')
     p4.place(x = 7, y = 235)
-
-    '''fotoSistema1 = tk.PhotoImage(file='FotoSistema1.png')
+    fotoAlejandro1 = tk.PhotoImage(file='FotoAlejandro1.png')
+    fotoSistema1 = tk.PhotoImage(file='FotoSistema1.png')
     fotoSistema2 = tk.PhotoImage(file='FotoSistema2.png')
     fotoSistema3 = tk.PhotoImage(file='FotoSistema3.png')
     fotoSistema4 = tk.PhotoImage(file='FotoSistema4.png')
-    fotoSistema5 = tk.PhotoImage(file='FotoSistema5.png')'''
-    foto = tk.Label(p4, width = 57, height=18, bg = 'white')
-    #foto['image'] = fotoSistema1
+    fotoSistema5 = tk.PhotoImage(file='FotoSistema5.png')
+    fotoSistema6 = tk.PhotoImage(file='FotoSistema6.png')
+    foto = tk.Label(p4, width = 405, height=270, bg = 'royalblue1')
+    foto['image'] = fotoSistema1
     foto.place(x=6, y=6)
-    #foto.bind('<Motion>', cambioFoto1)
+    foto.bind('<Enter>', cambioFoto1)
     
     boton = tk.Button(p4, 
                     width=44, 
